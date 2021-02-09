@@ -1,0 +1,25 @@
+-- Order countries by id asc, then show the 12th to 17th rows
+select * from db_class.customers 
+order by uid asc
+limit 6 offset 11;
+
+-- List all addresses in a city whose name starts with 'A’
+select address 
+from db_class.customers
+where city like 'A%';
+
+-- List all customers' first name, last name and the city they live in
+select name, surname, city 
+from db_class.customers;
+
+-- Find all customers with at least one payment whose amount is
+greater than 11 dollars
+select * 
+from db_class.customers
+where payment > 11;
+
+-- Find all duplicated first names in the customer table
+SELECT name, COUNT(*)
+FROM db_class.customers
+GROUP BY name
+HAVING COUNT(*) > 1;
